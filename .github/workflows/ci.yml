@@ -50,8 +50,8 @@ jobs:
 
     - name: make dirs
       run: \
-        mkdir -m 777 log
-        mkdir -m 777 temp
+        mkdir -m 777 log &&
+        mkdir -m 777 temp &&
         mkdir -m 777 tempForTests
 
     - name: test
