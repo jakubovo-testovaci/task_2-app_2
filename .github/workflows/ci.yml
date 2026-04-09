@@ -56,6 +56,9 @@ jobs:
 
     - name: test
       run: php vendor/bin/tester -C -j=1 tests
+
+    - name: show logs
+      run: find ./log -type f -name "*" -exec cat
         
         
         
