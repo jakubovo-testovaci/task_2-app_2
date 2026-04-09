@@ -1,0 +1,12 @@
+services:
+	- App\Core\RouterFactory::createRouter
+	- \Doctrine\ORM\EntityManager
+
+includes:
+	- doctrine.neon
+
+search:
+	-	in: %appDir%
+		classes:
+			- *Factory
+			- *Facade

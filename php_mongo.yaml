@@ -1,0 +1,29 @@
+version: '3.3'
+name: php_mongo
+
+services:
+    mongo:
+        ports:
+            - '27017'
+        logging:
+            options:
+                max-size: 1g
+        environment:
+          - MONGO_INITDB_ROOT_USERNAME=root
+          - MONGO_INITDB_ROOT_PASSWORD=mongol
+        image: mongo
+        volumes:
+          - mongo:/data/db
+        
+    php:
+      image: php-apa2
+      ports:
+        - 8082:80
+      volumes:
+        - type: bind
+          source: ./
+          target: /var/www/
+        
+volumes:
+  mongo:
+    external: true
