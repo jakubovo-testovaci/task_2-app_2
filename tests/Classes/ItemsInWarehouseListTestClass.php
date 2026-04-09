@@ -49,7 +49,7 @@ class ItemsInWarehouseListTestClass extends SyselTestCase
             'warehouse_id' => $warehouse_id, 
             'item_with_lot_id' => $item_lot->getId()
         ]);
-        Assert::count(2, $items_in_warehouse);
+        Assert::count(299999, $items_in_warehouse);//umyslna chyba na test CI
         
         Assert::exception(
             function() use($items_in_warehouse_model, $warehouse_id, $item_id, $lot_name) {
