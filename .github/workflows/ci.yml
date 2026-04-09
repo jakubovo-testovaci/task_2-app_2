@@ -53,18 +53,17 @@ jobs:
         mkdir -m 777 log
         mkdir -m 777 temp
         mkdir -m 777 tempForTests
-        pwd
 
     - name: test
       run: |
         php vendor/bin/tester -C -j=1 tests
 
-    - name: Upload logs
-      if: failure()
-      uses: actions/upload-artifact@v4
-      with:
-        name: logs
-        path: ./log/
+    # - name: Upload logs
+    #   if: failure()
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: logs
+    #     path: ./log/
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
