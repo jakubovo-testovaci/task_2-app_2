@@ -36,6 +36,9 @@ jobs:
     steps:
     - uses: actions/checkout@v5
 
+    - name: Setup GitHub auth for Composer
+      run: composer config --global github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
